@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+  <body>
+    <div class="container">
+      <div class="img-col">
+        <img class="logo" src="assets/logo.png" alt="logo" />
+      </div>
+      <div class="text-col">
+        <p>Startup</p>
+        <p>Financing</p>
+        <p>Calculator</p>
+      </div>
+    </div>
+
+    <div class="list-items">
+      <div class="dropdown" style="float: left;">
+
+        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" style="height: 30px; width: 30px"
+                title="Open other scenario">
+        </button>
+
+        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+          <li role="presentation"><strong>+ Create new Scenario</strong></li>
+        </ul>
+      </div>
+
+      <h1 *ngIf="!isEditable">{{title}}</h1>
+        <form>
+          <small *ngIf="isEditable">
+            <input class="form-control" [(ngModel)]="title" name="financing">
+          </small>
+        </form>
+          <span title="click to rename" role="button"  *ngIf="!isEditable" (click)= "onEditClick()">
+            <i id="edit-image" class="fa fa-edit pointer p-2 mr-n2 my-n2 btn-icon"></i>  
+          </span>
+            <span title="click to save" role="button"  *ngIf="isEditable" (click)= "onSave()">
+              <i class="fa fa-check save"></i>
+          </span> 
+        </div>
+        <div>
+          <section style="float:left;">
+            <div>
+              <app-side-menu></app-side-menu>
+            </div>
+          </section>
+
+          <section>
+            <div> 
+              <app-table1></app-table1>
+            </div>
+          </section>
+    </div>
+
+  <div>
+    <app-down-arrow></app-down-arrow>
+  </div>
+
+  <div>
+    <app-scenario-table></app-scenario-table>
+  </div>
+
+  <div>
+    <app-down-arrow></app-down-arrow>
+  </div>
+
+  <div>
+    <app-post-round-table></app-post-round-table>
+  </div>
+
+  <div>
+    <app-footer></app-footer>
+  </div>
+</body>
+  <router-outlet></router-outlet>
+</html>

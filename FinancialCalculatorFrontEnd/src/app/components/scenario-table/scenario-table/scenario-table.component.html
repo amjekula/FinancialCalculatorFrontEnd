@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+  <html lang="eng">
+
+    <body style="overflow-wrap: break-word; hyphens: auto;"> 
+
+      <!-- <div id="comp-render"> 
+        <app-scenario-table-template *ngIf="display"></app-scenario-table-template>
+      </div> -->
+
+      <div class="mb-0 border border-secondary card" id="tab-heading" > <!--*ngIf="!display" -->
+        <div class="card-header">
+          <div title="Click to rename" role="button" tabindex="0" class="pointer form-control" contenteditable="true">Financing Scenario</div>
+        </div>
+
+        <div class="card-body" >
+          <ul class="nav nav-tabs">
+            <li id="round-financingroundooo" class="nav-item" *ngFor="let tab of tabs">
+              <a class="active form-control d-inline-flex align-items-center nav-link" href="#series-a" aria-selected="true" data-toggle="tab" title="Click to rename">{{tab}}
+                <!-- <div contenteditable="true" title="Click to rename" role="button" data-toggle="tab" tabindex="0" class="pointer">{{tab}}</div> -->
+              </a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a aria-haspopup="true" class="nav-link" data-toggle="dropdown"  aria-expanded="false"
+                  style="background-color: lightgray;" id="nav-arrow">
+                <i class="fa fa-plus" style="color: darkgray;"></i>
+              </a>
+              <div tabindex="-1" aria-hidden="true" class="dropdown-menu" >
+                <button type="button" id="addRound" tabindex="0" class="dropdown-item" (click)="inc()" href="#unnamed-tab" data-toggle="tab">Financing Round</button>
+              </div>
+            </li>
+          </ul>
+
+
+          
+          <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade in active" id="series-a">
+
+
+<!-- ===============================Start of Series A content================================================================ -->
+              <div class="tab-content overflow-visible" >
+                <div class="tab-panel active">
+                  <div>
+                    <div class="d-flex justify-content-end align-items-center mb-4">
+                      <div class="d-flex">
+                        <div class="d-inline dropdown" >
+      
+                          <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown"
+                                    class="btn btn-secondary dropdown-toggle">
+                            <i id="add-btn" class="fa fa-plus mr-2"></i>Add
+                          </button>
+      
+                          <div id="Overflow" tabindex="-1" role="menu" aria-hidden="" class="fadeIn adjust-left adjust-top dropdown-menu dropdown-menu-right">
+                            <h6 id="trigger-id" tabindex="-1" class="d-flex align-items-center dropdown-header"> Trigger convertibles </h6>
+      
+                            <button id="convertible-id" type="button" tabindex="0" role="menuitem" class="d-flex align-items-center dropdown-item">
+                              <small>New convertible</small>
+                            </button>
+      
+                            <h6 id="invest-id" tabindex="-1" class="d-flex align-items-center dropdown-header"> Investment </h6>
+                            <button id="add-inv-id" type="button" tabindex="0" role="menuitem" class="d-flex align-items-center dropdown-item">
+                              <small>Add investment</small> 
+                            </button>
+      
+                            <button id="rata-id" type="button" tabindex="0" role="menuitem" class="d-flex align-items-center dropdown-item">
+                              <small>Pro-rata investment</small>
+                            </button>
+      
+                            <h6 id="percent-id" tabindex="-1" class="d-flex align-items-center dropdown-header">Fixed percentage</h6>
+                        
+                            <button id="pool-id" type="button" tabindex="0" role="menuitem" class="d-flex align-items-center dropdown-item"><small>Add Pool</small></button>
+                            <button id="add-perc-id" type="button" tabindex="0" role="menuitem" class="d-flex align-items-center dropdown-item">
+                              <small>Add investment by percentage</small>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+      
+                      <button (click)="onPress()" type="button" title="Delete round" id="delete-btn" class="ml-1 border border-secondary-hover btn btn-secondary">
+                        <i class="fa fa-trash"></i>
+                        <app-confirm-delete *ngIf="display"></app-confirm-delete>
+                      </button>
+      
+                    </div>
+                    <div>
+                      <div class="calculator-tour-step-3 row" *ngIf="!display"> 
+                        <div class="col-12 col-sm-6 col-lg-3">
+                          <div class="form-group">
+                            <label class="">Pre-money valuation</label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">EUR</span>
+                              </div>
+                              <input name="valuation" placeholder="Valuation" type="text" class="form-field form-control" value="20,000" inputmode="numeric"/>
+                              <div class="input-group-append">
+                                <button type="button" class="btn-append border border-secondary-hover btn btn-secondary">Pre</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+      
+                        <div class="col-12 col-sm-6 col-lg-3">
+                          <div class="form-group">
+                            <label class="">Target round size</label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">EUR</span>
+                              </div>
+                              <input name="targetRoundSize" placeholder="Expected amount" type="text" class="form-field form-control" value="58,582" inputmode="numeric"/>
+                            </div>
+                          </div>
+                        </div>
+      
+                        <div class="col-12 col-sm-6 col-lg-3">
+                          <div class="form-group">
+                          <label class="">Share class</label>
+                          <div class="btn-group">
+                            <button type="button" contenteditable="true" class="btn btn-primary" id="dropdownMenuButton">Select...</button>
+                            <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" id="dropdown-arrow" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                              <a class="dropdown-item">Preferred</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+      
+                    <div class="col-12 col-sm-6 col-lg-3">  
+                      <div class="form-group">
+                        <label class="">Expected closing date</label>
+                        <div class="react-datepicker-wrapper">
+                          <div class="react-datepicker__input-container">
+                            <div class="md-form">
+                              <input placeholder="Date" type="date" id="input" class="form-control" mdbInput>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div> 
+                    
+      
+      
+      
+      
+      
+      
+                    <div class="d-flex mt-3 mb-0 alert alert-secondary fade show" id="info-container" role="alert">
+                      <div class="my-auto col-sm-8 col-md-9 col-xl-10" >
+                        <p class="mb-0" id="table-info">
+                          <i class="fa fa-line-chart" aria-hidden="true"></i> 
+                            Add outstanding convertibles, new investments, and employee pools by clicking + Add </p>
+                      </div>
+                      <div class="d-none d-sm-flex justify-content-center col-sm-4 col-md-3 col-xl-2">
+                        <img class="curved-arrow--scenarios" src="https://cdn.ledgy.com/img/arrow-blue.png" alt="click on the button"/>
+                      </div>
+                    </div>
+      
+      
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+              
+            </div>
+<!-- ===============================End of Series A content================================================================ -->
+            
+            <div class="tab-pane fade" id="unnamed-tab">
+              <!-- <div id="comp-render"> -->
+                <app-scenario-table-template></app-scenario-table-template>
+              <!-- </div> -->
+            </div>
+          
+            
+          </div>
+
+    </div>
+  </div>
+</body>
+<!-- <br>  <br>  <br>  <br>  <br>  -->
+<html>

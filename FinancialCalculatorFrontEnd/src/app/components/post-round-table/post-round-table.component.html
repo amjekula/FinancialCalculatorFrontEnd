@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+    </head>
+    
+    <body>
+      <div class="mb-0 border border-secondary calculator-tour-step-7 card">
+        <div class="card-header">Post-Round Cap Table (fully diluted)</div>
+        <div class="card-body">
+          <div class="animated fadeIn">
+            <table class="table-responsive-md table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col" style="width: 25%">Name</th>
+                  <th scope="col">Percentage (%)</th>
+                  <th scope="col" class="text-right">Number of shares</th>
+                  <th scope="col" class="text-right">Invested (EUR)</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr mdbTableCol *ngFor="let shared of sharedElements">
+                  <td> {{shared.stakeholder}} <small id="" class="d-block text-muted">Common</small> </td>
+                  <td><div id="shares-percentage" >{{(shared.shares/getTotalShares() * 100).toFixed(2)}}</div> 
+                    <div class="progress progress-sm">
+                    <div class="progress-bar" role="progressbar" aria-valuemin="1" aria-valuemax="100"
+                          style="width: {{ (shared.shares/getTotalShares()) * 100 }}%; background-color: rgb(229, 197, 52)"></div>
+                    </div>
+                  </td>
+                  <td class="text-right"><div class="mb-1" aria-valuemin="1" aria-valuemax="100">{{shared.shares.toLocaleString()}}</div></td>
+                  <td class="text-right"><div class="mb-1" aria-valuemin="1" aria-valuemax="100">{{shared.investment.toLocaleString()}}</div></td>
+                </tr>
+
+                <tr mdbTableCol>
+                  <th>Total</th>
+                  <th id="totalPercentage">100.00</th>
+                  <th class="text-right">{{getTotalShares().toLocaleString()}}</th>
+                  <th class="text-right">{{getTotalInvestments().toLocaleString()}}</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </body><br><br><br><br><br><br>
+  <router-outlet></router-outlet>
+</html>

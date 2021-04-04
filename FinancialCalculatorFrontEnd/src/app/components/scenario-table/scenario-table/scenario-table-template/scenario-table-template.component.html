@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+  <html lang="eng">
+
+    <body style="overflow-wrap: break-word; hyphens: auto;"> 
+      <div id="comp-render" > <!--*ngIf="display" -->
+        <!-- <app-scenario-table-template></app-scenario-table-template> -->
+      </div>
+
+      <div > <!--*ngIf="!display" -->
+        <!-- <div class="card-header">
+          <div title="Click to rename" role="button" tabindex="0" class="pointer form-control" contenteditable="true">Financing Scenario</div>
+        </div> -->
+
+        <div class="card-body">
+          <!-- <ul class="tab-bar nav nav-tabs" >
+            <li id="round-financingroundooo" class=" nav-tabs nav-item form-group" role="tab" *ngFor="let tab of tabs">
+              <a class="active form-control d-inline-flex align-items-center nav-link" aria-selected="true">
+                <div contenteditable="true" title="Click to rename" role="button" tabindex="0" class="pointer">{{tab}}</div>
+              </a>
+            </li>
+
+            <li class="nav-item dropdown nav-tabs" role="tab">
+              <a aria-haspopup="true" class="nav-link" data-toggle="dropdown" aria-expanded="false"
+                  style="background-color: lightgray;" id="nav-arrow">
+                <i class="fa fa-plus" style="color: darkgray;"></i>
+              </a>
+              <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
+                <button type="button" id="addRound" tabindex="0" role="menuitem" class="dropdown-item" (click)="inc()">Financing Round</button>
+              </div>
+            </li>
+          </ul> -->
+         <div class="tab-content overflow-visible" >
+          <div class="tab-panel active">
+            <div>
+              <div class="d-flex justify-content-end align-items-center mb-4">
+                <div class="d-flex">
+                  <div class="d-inline dropdown">
+
+                    <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown"
+                              class="btn btn-secondary dropdown-toggle">
+                      <i id="add-btn" class="fa fa-plus mr-2"></i>Add
+                    </button>
+                    <div id="Overflow" tabindex="-1" role="menu" aria-hidden="" class="fadeIn adjust-left adjust-top dropdown-menu dropdown-menu-right">
+                      <h6 id="trigger-id" tabindex="-1" class="d-flex align-items-center dropdown-header"> Trigger convertibles </h6>
+
+                      <button id="convertible-id" type="button" tabindex="0" role="menuitem" class="d-flex align-items-center dropdown-item">
+                        <small>New convertible</small>
+                      </button>
+
+                      <h6 id="invest-id" tabindex="-1" class="d-flex align-items-center dropdown-header"> Investment </h6>
+                      <button id="add-inv-id" type="button" tabindex="0" role="menuitem" class="d-flex align-items-center dropdown-item">
+                        <small>Add investment</small> 
+                      </button>
+
+                      <button id="rata-id" type="button" tabindex="0" role="menuitem" class="d-flex align-items-center dropdown-item">
+                        <small>Pro-rata investment</small>
+                      </button>
+
+                      <h6 id="percent-id" tabindex="-1" class="d-flex align-items-center dropdown-header">Fixed percentage</h6>
+                  
+                      <button id="pool-id" type="button" tabindex="0" role="menuitem" class="d-flex align-items-center dropdown-item"><small>Add Pool</small></button>
+                      <button id="add-perc-id" type="button" tabindex="0" role="menuitem" class="d-flex align-items-center dropdown-item">
+                        <small>Add investment by percentage</small>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <button (click)="onPress()" type="button" title="Delete round" id="delete-btn" class="ml-1 border border-secondary-hover btn btn-secondary">
+                  <i class="fa fa-trash"></i>
+                  <app-confirm-delete *ngIf="display"></app-confirm-delete>
+                </button>
+
+              </div>
+              <div>
+                <div class="calculator-tour-step-3 row" *ngIf="!display">
+                  <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="form-group">
+                      <label class="">Pre-money valuation</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">EUR</span>
+                        </div>
+                        <input name="valuation" placeholder="Valuation" type="text" class="form-field form-control" inputmode="numeric"/>
+                        <div class="input-group-append">
+                          <button type="button" class="btn-append border border-secondary-hover btn btn-secondary">Pre</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="form-group">
+                      <label class="">Target round size</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">EUR</span>
+                        </div>
+                        <input name="targetRoundSize" placeholder="Expected amount" type="text" class="form-field form-control" inputmode="numeric"/>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="form-group">
+                    <label class="">Share class</label>
+                    <div class="btn-group">
+                      <button type="button" contenteditable="true" class="btn btn-primary" id="dropdownMenuButton">Select...</button>
+                      <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" id="dropdown-arrow" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item">Preferred</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              <div class="col-12 col-sm-6 col-lg-3">  
+                <div class="form-group">
+                  <label class="">Expected closing date</label>
+                  <div class="react-datepicker-wrapper">
+                    <div class="react-datepicker__input-container">
+                      <div class="md-form">
+                        <input placeholder="Date" type="date" id="input" class="form-control" mdbInput>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> 
+              <!--<table class="table-responsive-xl calculator-tour-step-6 table">
+                <thead>
+                  <tr>
+                    <th scope="col" class="text-right">
+                        Investment (EUR)<button type="button" title="Sort by investment"
+                          class="btn-blank text-muted ml-1 border border-secondary-hover btn btn-secondary"><i class="fa fa-sort-numeric-down"></i></button></th>
+                    <th scope="col" class="text-right">Percentage (%)</th>
+                    <th scope="col" class="text-right">Issue price (EUR)</th>
+                    <th scope="col" class="text-right">Number of shares</th>
+                  </tr>
+                </thead>
+              </table> -->
+
+              <!-- <div class="d-flex align-items-center form-control" > 
+                <button type="button" id="How-is-this-calculated?" class="d-block btn-dynamic-chevron py-2 px-0 btn btn-white" (click)="toggle()">
+                  <i class="fa fa-chevron-circle-right text-muted ml-1 mr-2 rotate down90" id="spin"></i>How is this calculated?
+                </button>
+              </div>
+
+              <div class="collapse show" *ngIf="show">
+                <div class="alert alert-light show" role="alert">
+                  <ul class="pl-3">
+                    <li><strong>Total round size</strong> is the sum of all actual investments</li>
+                    <li>The number of shares is <strong>rounded down</strong>.</li>
+                    <li><strong>Percentage</strong> includes new and already held shares.</li>
+                    <li>You can adjust these round modeling calculations in<i>Settings </i><i class="fa fa-cog"></i></li>
+                  </ul>
+                </div>
+              </div>
+            
+            
+            -->
+
+              <div class="d-flex mt-3 mb-0 alert alert-secondary fade show" id="info-container" role="alert">
+                <div class="my-auto col-sm-8 col-md-9 col-xl-10" >
+                  <p class="mb-0" id="table-info">
+                    <i class="fa fa-line-chart" aria-hidden="true"></i> 
+                      Add outstanding convertibles, new investments, and employee pools by clicking + Add </p>
+                </div>
+                <div class="d-none d-sm-flex justify-content-center col-sm-4 col-md-3 col-xl-2">
+                  <img class="curved-arrow--scenarios" src="https://cdn.ledgy.com/img/arrow-blue.png" alt="click on the button"/>
+                </div>
+              </div>
+
+              
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<!-- <br>  <br>  <br>  <br>  <br>  -->
+<html>

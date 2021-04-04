@@ -1,0 +1,160 @@
+#tab-heading{
+  overflow: hidden;
+  background-color: white;
+  margin: 70px 360px 70px 360px;
+}
+
+.card-header{
+  background-color: white;
+  word-wrap: normal;
+
+}
+
+.add-btn{
+  background-color: #1e2b46;
+}
+
+#percent-id, #invest-id, #trigger-id{
+  background: rgb(235, 235, 235);
+}
+
+#convertible-id, #add-inv-id, #rata-id, #pool-id, #add-perc-id{
+  border: 1px solid;
+  border-color: transparent transparent rgb(0, 0, 0, 0.1) transparent;
+}
+
+.pointer{
+  display: flex;  
+  flex-wrap: wrap;
+  width: fit-content;
+  border: 0px;
+}
+
+.body{
+    border: 1px solid lightslategray;
+    margin: 0px 310px 0px 200px; 
+}
+
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: 1px lightslategray;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: flex;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+  margin: 70px 358px 70px 358px;
+}
+
+.container{
+  display: flex;
+}
+
+.input-group{
+ width: fit-content;
+ height: fit-content;
+}
+
+.input-group-prepend{
+width: fit-content;
+height: fit-content;
+}
+
+.collapse, .tab-panel{
+-webkit-animation: fadeEffect 2s;
+ animation: fadeEffect 2s;
+}
+
+@-webkit-keyframes fadeEffect {
+from {opacity: 0;}
+to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+from {opacity: 0;}
+to {opacity: 1;}
+}
+
+.d-block{
+background-color: white;
+}
+
+.d-flex{
+ border: 0px;
+ color: black;
+}
+
+#spin:active{
+transform: rotate(90deg);
+}
+
+li{
+ cursor: pointer;
+}
+
+#dropdownMenuButton{
+ background-color: white;
+ color: grey;
+ width: 140px;
+ text-align: left;
+ border: 1px solid lightgray;
+} 
+
+.dropdown-menu{
+ height: 40px;
+}
+
+#dropdown-arrow{
+background-color: white;
+color: grey;
+border: 1px solid lightgray;
+border-left: white;
+}
+
+.dropdown-item:active{
+ background-color: skyblue;
+}
+
+#delete-btn{
+ background-color:lightgray;
+}
+
+#delete-btn:hover{
+ background-color: gray;
+}
+
+.fa-trash{
+ color: black;
+}
+
+.d-none{
+ height: 50px;
+ transform: scaleY(-1);
+}
+
+.info-container{
+ color: rgb(217, 247, 255);
+}
+
+.fa-line-chart, #table-info{
+ color: gray;
+}

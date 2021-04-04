@@ -1,0 +1,81 @@
+h1 {
+  cursor: default;
+  position: relative;
+  margin-top: 9px;
+  text-align: center;
+  justify-content: center;
+  color: #2f3539;
+  font-family: "Museo Sans Rounded";
+  font-size: 22.5px;
+  hyphens: none;
+  line-height: 1;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.list-items .presentation {
+  color: black;
+}
+
+.list-items {
+  display: flex;
+  margin: 30px;
+  justify-content: center;
+  font-family: "Museo Sans Rounded";
+  font-size: 22.5px;
+  hyphens: none;
+  line-height: 1;
+  font-weight: 300;
+  font-style: normal;
+  cursor: pointer;
+  position: relative;
+}
+
+.edit-icon {
+  display: flex;
+  height: 33px;
+  cursor: pointer;
+}
+
+.dropdown-menu:hover {
+  background-color: lightgray;
+  visibility: visible;
+}
+
+.edit-class {
+  margin: 50px 0px 0px 0px;
+}
+
+.edit-class .sort-down-icon {
+  margin: -20px 0px -50px 650px;
+  display: flex;
+  height: 20px;
+}
+
+.logo {
+  margin: 25px -25px 25px 25px;
+  height: 30px;
+  display: block;
+}
+
+.container {
+  margin-left: 10px;
+  display: flex;
+}
+
+.img-col {
+  flex-basis: 12%;
+}
+
+.text-col p {
+  font-size: small;
+  margin: 10px -4px -12px -4px;
+}
+
+#edit-image{
+  color: gray;
+}
+
+#edit-image:hover{
+  color: black;
+}

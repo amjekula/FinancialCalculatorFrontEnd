@@ -1,0 +1,67 @@
+ <!DOCTYPE html>
+  <html lang="en">
+    
+    <head>
+      <meta charset="UTF-8" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+    </head>
+
+  <body>
+    <div class="table-outliner">
+      <div class="border-secondary card">
+        <div class="card-header" style="background-color:white;">
+          <div role="text" class="pointer">Pre-Round Cap Table</div>
+          <br>
+        </div>
+
+        <table class="table table-bordered table-condensed table-editable">
+          <thead>
+            <tr> <th *ngFor="let head of headElements" scope="col">{{head}}</th> </tr>
+          </thead>
+
+          <tbody id="pre-round-table">
+            <tr id="mainTable" mdbTableCol *ngFor="let shared of sharedElements; let id = index">
+            <td class="selectable">
+              <div class="editable-cell" [hidden]="editCell === shared.id" (click)="startEdit(shared.id)"> {{shared.stakeholder}}</div>
+              <input class="form-control" (click)="add()" [hidden]="editCell !== shared.id" type="text" name="stakeholder" [(ngModel)]="shared.stakeholder" style="text-align: center;"
+                      (blur) = "stopEdit()"/>
+            </td>
+
+            <td class="selectable">
+              <div class="editable-cell" [hidden]="editCell === shared.id" (click)="startEdit(shared.id)"> {{shared.shares.toLocaleString()}}</div>
+              <input class="form-control" (click)="add()" [hidden]="editCell !== shared.id" type="number" name="stakeholder" [(ngModel)]="shared.shares" style="text-align: center;"
+                      (blur) = "stopEdit()"/>
+            </td>
+
+            <td class="selectable">
+              <div class="editable-cell" [hidden]="editCell === shared.id" (click)="startEdit(shared.id)"> {{shared.investment.toLocaleString(undefined, {minimumFractionDigits: 2})}}</div>
+              <input class="form-control" (click)="add()" [hidden]="editCell !== shared.id" type="number" name="stakeholder" [(ngModel)]="shared.investment" style="text-align: center;"
+                      (blur) = "stopEdit()"/>
+            </td>
+            </tr>
+          </tbody>
+
+          <div class="btn-container" > 
+            <div class="toggle-btn" onclick="this.classList.toggle('active')" (click)="toggle()">
+              <div class="inner-circle"></div>
+            </div>
+
+            <h5 class="toggle-text">Add a pre-round pool</h5>
+
+            <div class="input-group" *ngIf="show">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fa fa-pie-chart fa-1x">
+                  </i>
+                </span>
+              </div>
+              <input name="amount" placeholder="Pool amount" class="text-right form-control" type="number">
+            </div>
+              <br><br><br><br>
+            </div>
+        </table>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </body> 
+</html> 
